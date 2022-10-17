@@ -143,7 +143,7 @@ function finish(){
 
 
     let mensage = `Olá gostaria de fazer o pedido: %0A- Prato: ${option1} %0A- Bebida: ${option2} %0A- Sobremesa: ${option3} %0A- Total: R$ ${total}  %0A  %0ANome: ${nameClient}%0AEndereço: ${address}`;
-    window.open(`https://wa.me/5531997774935?text=${encodeURIComponent(mensage)}`);
+    window.open(`https://wa.me/5531997774395?text=${encodeURIComponent(mensage)}`);
 
     confirmationScreen = document.querySelector('.bonus');
     confirmationScreen.classList.add('hidden');
