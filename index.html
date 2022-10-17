@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="icon" type="imagem/png" href="./img/icon.png" />
+
+    <title>DrivenEats</title>
+</head>
+<body>
+    
+<!----------------------- Bonus ---------------------------->
+    <div class="bonus hidden">
+        <div class="confirmation-screen">
+            <h1>Confirme seu pedido</h1>
+            <div class="itens">
+                <div class="item1">
+                    <span class="title1"></span>
+                    <span class="price1"></span>
+                </div>
+                <div class="item2">
+                    <span class="title2"></span>
+                    <span class="price2"></span>
+                </div>
+                <div class="item3">
+                    <span class="title3"></span>
+                    <span class="price3"></span>
+                </div>
+                <div class="total">
+                    <span class="total=text">TOTAL</span>
+                    <span class="price-total">
+                        <span>R$</span>
+                        <span class="price-total-text"></span>
+                    </span>
+                </div>
+            </div>
+            <button class="next-button" onclick="finish()">Tudo certo, pode pedir!</button>
+            <button class="cancel" onclick="cancel()">Cancelar</button>
+        </div>
+    </div>
+    
+    <div class="bonus2 hidden">
+        <div class="name-address">
+            <h1> Qual seu nome?</h1>
+            <input class="name" type="text" name="name">
+            <h1> E seu endereço? ;)</h1>
+            <input class="address" type="text" name="address">
+            <input class="next-button" type="submit" value="Continuar" onclick="goToFinish()">
+        </div>
+    </div>
+
+    <div class="bonus3 hidden">
+        <div class="finish-message">
+            <h1 class="text-thanks"></h1>
+            <button class="close" onclick="exit()">Fechar :)</button>
+        </div>
+    </div>
+
+    <div class="alert-bonus hidden">
+        <div class="alert">
+            <h1>Selecione todos os itens para poder fechar o pedido ;)</h1>
+            <button onclick="ok()">Ok!</button>
+        </div>
+    </div>
+
+    <header>
+        <h1>DrivenEats</h1>
+        <h2>Sua comida em 6 minutos</h2>
+    </header>
+
+    <main>
+        <h1 class="title">Primeiro, seu prato</h1>
+
+        <div class="menu opcao1 menu1">
+
+            <div class="card" onclick="selectFood(this)">
+                <div class="card-option">
+                    <img src="./img/tacos2.jpg" alt="">
+                    <h1 class="card-title">Tacos Mexicanos</h1>
+                    <p class="card-description">Tacos recheados e <br> molho apimentado</p>
+                    <div class="card-price">
+                        <h2>R$</h2>
+                        <h2 class="price">12,00</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" onclick="selectFood(this)">
+                <div class="card-option">
+                    <img src="./img/pao de alho.jpg" alt="">
+                    <h1 class="card-title">Pão de alho</h1>
+                    <p class="card-description">Com queijo e <br> salsinha</p>
+                    <div class="card-price">
+                        <h2>R$</h2>
+                        <h2 class="price">15,00</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" onclick="selectFood(this)">
+                <div class="card-option">
+                    <img src="./img/sushi.jpg" alt="">
+                    <h1 class="card-title">Sushi</h1>
+                    <p class="card-description">Com salmão e <br> recheio de camarão</p>
+                    <div class="card-price">
+                        <h2>R$</h2>
+                        <h2 class="price">21,99</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" onclick="selectFood(this)">
+                <div class="card-option">
+                    <img src="./img/hamburguer.jpg" alt="">
+                    <h1 class="card-title">Hamburguers</h1>
+                    <p class="card-description">2 por 1, completo e<br> com bife de costela</p>
+                    <div class="card-price">
+                        <h2>R$</h2>
+                        <h2 class="price">25,00</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" onclick="selectFood(this)">
+                <div class="card-option">
+                    <img src="./img/pizza.jpg" alt="">
+                    <h1 class="card-title">Pizza</h1>
+                    <p class="card-description">Pizza de peperoni <br> com muito queijo</p>
+                    <div class="card-price">
+                        <h2>R$</h2>
+                        <h2 class="price">30,00</h2>
+                    </div>
+                </div>
+            </div>  
+
+        </div>
+
+        <h1 class="title">Agora, sua bebida</h1>
+        <div class="menu opcao2 menu2">
+
+            <div class="card" onclick="selectDrink(this)">
+                <div class="card-option">
+                    <img src="./img/agua-com-gas.png" alt="">
+                    <h1 class="card-title">Água com gás</h1>
+                    <p class="card-description">500 ml <br> com limão</p>
+                    <div class="card-price">
+                        <h2>R$</h2>
+                        <h2 class="price">2,50</h2>
+                    </div>
+                </div>
+            </div>   
+
+            <div class="card" onclick="selectDrink(this)">
+                <div class="card-option">
+                    <img src="./img/cha.jpg" alt="">
+                    <h1 class="card-title">Chá gelado</h1>
+                    <p class="card-description"> 800 ml <br> com hortelã e limão</p>
+                    <div class="card-price">
+                        <h2>R$</h2>
+                        <h2 class="price">5,00</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" onclick="selectDrink(this)">
+                <div class="card-option">
+                    <img src="./img/uva.png" alt="">
+                    <h1 class="card-title">Suco de uva verde</h1>
+                    <p class="card-description"> Integral com pedaços <br> de uva</p>
+                    <div class="card-price">
+                        <h2>R$</h2>
+                        <h2 class="price">8,50</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" onclick="selectDrink(this)">
+                <div class="card-option">
+                    <img src="./img/cocas.png" alt="">
+                    <h1 class="card-title">Coca-cola</h1>
+                    <p class="card-description"> Coquinha gelada <br> hmmmmmmmm</p>
+                    <div class="card-price">
+                        <h2>R$</h2>
+                        <h2 class="price">10,00</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" onclick="selectDrink(this)">
+                <div class="card-option">
+                    <img src="./img/Vinho-Tinto.jpg" alt="">
+                    <h1 class="card-title">Vinho</h1>
+                    <p class="card-description"> Vinho tinto <br> integral</p>
+                    <div class="card-price">
+                        <h2>R$</h2>
+                        <h2 class="price">20,00</h2>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <h1 class="title">Por fim, sua sobremesa</h1>
+
+        <div class="menu opcao3 menu3">
+            
+            <div class="card" onclick="selectDessert(this)">
+                <div class="card-option">
+                    <img src="./img/maracuja.jpg" alt="">
+                    <h1 class="card-title">Mousse maracujá</h1>
+                    <p class="card-description"> Com cobertura de <br> geleia de maracujá</p>
+                    <div class="card-price">
+                        <h2>R$</h2>
+                        <h2 class="price">5,99</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" onclick="selectDessert(this)">
+                <div class="card-option">
+                    <img src="./img/mochi.jpg" alt="">
+                    <h1 class="card-title">Mochi recheado</h1>
+                    <p class="card-description"> Recheio de anko <br> e morangos</p>
+                    <div class="card-price">
+                        <h2>R$</h2>
+                        <h2 class="price">10,00</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" onclick="selectDessert(this)">
+                <div class="card-option">
+                    <img src="./img/açai.png" alt="">
+                    <h1 class="card-title">Sorvete de açai</h1>
+                    <p class="card-description"> Acompanhamentos <br> variados </p>
+                    <div class="card-price">
+                        <h2>R$</h2>
+                        <h2 class="price">12,90</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" onclick="selectDessert(this)">
+                <div class="card-option">
+                    <img src="./img/banoffe.png" alt="">
+                    <h1 class="card-title">Banoffe</h1>
+                    <p class="card-description"> Coberto por chantilly <br> e café moido </p>
+                    <div class="card-price">
+                        <h2>R$</h2>
+                        <h2 class="price">15,00</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" onclick="selectDessert(this)">
+                <div class="card-option">
+                    <img src="./img/peti-gateau-submarino.png" alt="">
+                    <h1 class="card-title">Petit gateau</h1>
+                    <p class="card-description"> Chocolate, sorvete <br> e frutas silvestres </p>
+                    <div class="card-price">
+                        <h2>R$</h2>
+                        <h2 class="price">20,00</h2>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <button class="finish-button" onclick="next()">
+            <h2 class="text-button">Selecione os 3 itens <br>
+                para fechar o pedido</h2>
+        </button>
+    </footer>
+
+</body>
+<script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+<script src="./js/script.js"></script>
+</html>
