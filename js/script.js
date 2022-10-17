@@ -142,7 +142,7 @@ function finish(){
     const total = prices.toFixed(2).replace(".",",");
 
 
-    let mensage = `Olá gostaria de fazer o pedido: %0A- Prato: ${option1} %0A- Bebida: ${option2} %0A- Sobremesa: ${option3} %0A- Total: R$ ${total}  %0A  %0ANome: ${nameClient}%0AEndereço: ${address}`;
+    let mensage = `Olá gostaria de fazer o pedido: \n- Prato: ${option1} \n- Bebida: ${option2} \n- Sobremesa: ${option3} \n- Total: R$ ${total}  \n  \nNome: ${nameClient}\nEndereço: ${address}`;
     window.open(`https://wa.me/5531997774395?text=${encodeURIComponent(mensage)}`);
 
     confirmationScreen = document.querySelector('.bonus');
